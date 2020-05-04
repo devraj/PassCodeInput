@@ -12,19 +12,10 @@ struct PassCodeInputField: View {
     
     @ObservedObject var inputModel: PassCodeInputModel
     
-    
     var body: some View {
         HStack {
             ForEach(0 ..< 6) { index in
-                PassCodeInputCell(index: index, inputModel: self.inputModel,  value: "", isFirstResponder: false)
-                    .frame(height: 20)
-                    .frame(maxWidth: .infinity, alignment: .center)
-                    .padding([.trailing, .leading], 10)
-                    .padding([.vertical], 15)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 6)
-                            .stroke(Color.red.opacity(0.5), lineWidth: 2)
-                    )
+                PassCodeInputCell()
             }
         }
     }

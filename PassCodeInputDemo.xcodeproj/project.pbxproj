@@ -20,6 +20,7 @@
 		4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */; };
 		4DE1ED38245FBBAD00A5E4A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3A245FBBAD00A5E4A9 /* Localizable.strings */; };
 		4DE1ED3C245FEE3400A5E4A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3B245FEE3400A5E4A9 /* README.md */; };
+		4DE1ED3E246040B600A5E4A9 /* PassCodeInputTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3D246040B600A5E4A9 /* PassCodeInputTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputField.swift; sourceTree = "<group>"; };
 		4DE1ED39245FBBAD00A5E4A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		4DE1ED3B245FEE3400A5E4A9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4DE1ED3D246040B600A5E4A9 /* PassCodeInputTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */,
 				4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */,
 				4DE1ED32245F9F5000A5E4A9 /* PassCodeInputCell.swift */,
+				4DE1ED3D246040B600A5E4A9 /* PassCodeInputTextField.swift */,
 				4DE1ED04245BDAD900A5E4A9 /* ContentView.swift */,
 				4DE1ED06245BDAD900A5E4A9 /* Assets.xcassets */,
 				4DE1ED0B245BDAD900A5E4A9 /* LaunchScreen.storyboard */,
@@ -288,6 +291,7 @@
 				4DE1ED01245BDAD900A5E4A9 /* AppDelegate.swift in Sources */,
 				4DE1ED03245BDAD900A5E4A9 /* SceneDelegate.swift in Sources */,
 				4DE1ED31245F9BE200A5E4A9 /* PassCodeInputModel.swift in Sources */,
+				4DE1ED3E246040B600A5E4A9 /* PassCodeInputTextField.swift in Sources */,
 				4DE1ED05245BDAD900A5E4A9 /* ContentView.swift in Sources */,
 				4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */,
 			);
