@@ -1,5 +1,5 @@
 //
-//  PassCodeInputTextField.swift
+//  PassCodeInputTextField.swift.swift
 //  PassCodeInputDemo
 //
 //  Created by Dev Mukherjee on 4/5/20.
@@ -32,6 +32,8 @@ struct PassCodeInputTextField : UIViewRepresentable {
     }
 
     typealias UIViewType = UITextField
+    
+    var cellIndex: Int
 
     func makeUIView(context: UIViewRepresentableContext<PassCodeInputTextField>) -> UITextField {
 
@@ -43,7 +45,8 @@ struct PassCodeInputTextField : UIViewRepresentable {
         return textField
     }
     
-    func updateUIView(_ uiView: UITextField, context: UIViewRepresentableContext<PassCodeInputTextField>) {
+    func updateUIView(_ uiView: UITextField,
+                      context: UIViewRepresentableContext<PassCodeInputTextField>) {
         
     }
     

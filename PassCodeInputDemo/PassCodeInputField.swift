@@ -15,7 +15,7 @@ struct PassCodeInputField: View {
     var body: some View {
         HStack {
             ForEach(0 ..< 6) { index in
-                PassCodeInputCell()
+                PassCodeInputCell(cellIndex: index)
             }
         }
     }

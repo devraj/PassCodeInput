@@ -1,5 +1,5 @@
 //
-//  PassCodeInputCell.swift
+//  PassCodeInputTextField.swift
 //  PassCodeInputDemo
 //
 //  Created by Dev Mukherjee on 4/5/20.
@@ -11,21 +11,23 @@ import SwiftUI
 
 struct PassCodeInputCell: View {
     
+    @State var cellIndex: Int
+    
     var body: some View {
-        PassCodeInputTextField()
-        .frame(height: 20)
-        .frame(maxWidth: .infinity, alignment: .center)
-        .padding([.trailing, .leading], 10)
-        .padding([.vertical], 15)
-        .overlay(
-            RoundedRectangle(cornerRadius: 6)
-                .stroke(Color.red.opacity(0.5), lineWidth: 2)
-        )
+        PassCodeInputTextField(cellIndex: self.cellIndex)
+            .frame(height: 20)
+            .frame(maxWidth: .infinity, alignment: .center)
+            .padding([.trailing, .leading], 10)
+            .padding([.vertical], 15)
+            .overlay(
+                RoundedRectangle(cornerRadius: 6)
+                    .stroke(Color.red.opacity(0.5), lineWidth: 2)
+            )
     }
 }
 
 struct PassCodeInputCell_Previews: PreviewProvider {
     static var previews: some View {
-        PassCodeInputCell()
+        PassCodeInputCell(cellIndex: 0)
     }
 }
