@@ -9,7 +9,13 @@
 import Foundation
 import SwiftUI
 
-struct PassCodeInputModel {
+class PassCodeInputModel : ObservableObject {
+    
+    @Published var passCode: [String] = []
+    @Published var isValid: Bool = false
+    
+    @Published var currentIndex: Int = 0
+
     
     
 }

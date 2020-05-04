@@ -9,16 +9,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var passCodeModel = PassCodeInputModel()
+    
     var body: some View {
         Form {
             Section {
-                PassCodeInputField()
+                PassCodeInputField(inputModel: self.passCodeModel)
 
             }
             Section {
                 Button(LocalizedStringKey("I'm Ready"), action: {
                   
-                })
+                }).disabled(!self.passCodeModel.isValid)
             }
         }
     }
