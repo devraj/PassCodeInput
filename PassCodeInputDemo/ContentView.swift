@@ -10,7 +10,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        Form {
+            Section {
+                PassCodeInputField()
+
+            }
+            Section {
+                Button(LocalizedStringKey("I'm Ready"), action: {
+                  
+                })
+            }
+        }
     }
 }
 

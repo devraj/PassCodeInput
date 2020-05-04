@@ -15,6 +15,10 @@
 		4DE1ED0D245BDAD900A5E4A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED0B245BDAD900A5E4A9 /* LaunchScreen.storyboard */; };
 		4DE1ED18245BDAD900A5E4A9 /* PassCodeInputDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED17245BDAD900A5E4A9 /* PassCodeInputDemoTests.swift */; };
 		4DE1ED23245BDAD900A5E4A9 /* PassCodeInputDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED22245BDAD900A5E4A9 /* PassCodeInputDemoUITests.swift */; };
+		4DE1ED31245F9BE200A5E4A9 /* PassCodeInputModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */; };
+		4DE1ED33245F9F5000A5E4A9 /* PassCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED32245F9F5000A5E4A9 /* PassCodeInputCell.swift */; };
+		4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */; };
+		4DE1ED38245FBBAD00A5E4A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3A245FBBAD00A5E4A9 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		4DE1ED1E245BDAD900A5E4A9 /* PassCodeInputDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PassCodeInputDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1ED22245BDAD900A5E4A9 /* PassCodeInputDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputDemoUITests.swift; sourceTree = "<group>"; };
 		4DE1ED24245BDAD900A5E4A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputModel.swift; sourceTree = "<group>"; };
+		4DE1ED32245F9F5000A5E4A9 /* PassCodeInputCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputCell.swift; sourceTree = "<group>"; };
+		4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassCodeInputField.swift; sourceTree = "<group>"; };
+		4DE1ED39245FBBAD00A5E4A9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +109,15 @@
 			children = (
 				4DE1ED00245BDAD900A5E4A9 /* AppDelegate.swift */,
 				4DE1ED02245BDAD900A5E4A9 /* SceneDelegate.swift */,
+				4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */,
+				4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */,
+				4DE1ED32245F9F5000A5E4A9 /* PassCodeInputCell.swift */,
 				4DE1ED04245BDAD900A5E4A9 /* ContentView.swift */,
 				4DE1ED06245BDAD900A5E4A9 /* Assets.xcassets */,
 				4DE1ED0B245BDAD900A5E4A9 /* LaunchScreen.storyboard */,
 				4DE1ED0E245BDAD900A5E4A9 /* Info.plist */,
 				4DE1ED08245BDAD900A5E4A9 /* Preview Content */,
+				4DE1ED3A245FBBAD00A5E4A9 /* Localizable.strings */,
 			);
 			path = PassCodeInputDemo;
 			sourceTree = "<group>";
@@ -241,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4DE1ED0D245BDAD900A5E4A9 /* LaunchScreen.storyboard in Resources */,
+				4DE1ED38245FBBAD00A5E4A9 /* Localizable.strings in Resources */,
 				4DE1ED0A245BDAD900A5E4A9 /* Preview Assets.xcassets in Resources */,
 				4DE1ED07245BDAD900A5E4A9 /* Assets.xcassets in Resources */,
 			);
@@ -267,9 +280,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DE1ED33245F9F5000A5E4A9 /* PassCodeInputCell.swift in Sources */,
 				4DE1ED01245BDAD900A5E4A9 /* AppDelegate.swift in Sources */,
 				4DE1ED03245BDAD900A5E4A9 /* SceneDelegate.swift in Sources */,
+				4DE1ED31245F9BE200A5E4A9 /* PassCodeInputModel.swift in Sources */,
 				4DE1ED05245BDAD900A5E4A9 /* ContentView.swift in Sources */,
+				4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +327,14 @@
 				4DE1ED0C245BDAD900A5E4A9 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		4DE1ED3A245FBBAD00A5E4A9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4DE1ED39245FBBAD00A5E4A9 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
