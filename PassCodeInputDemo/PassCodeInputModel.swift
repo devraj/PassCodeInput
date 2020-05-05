@@ -14,8 +14,7 @@ class PassCodeInputModel : ObservableObject {
     @Published var passCode: [String] = []
     @Published var isValid: Bool = false
     
-    @Published var currentIndex: Int = 0
-
+    @Published var selectedCellIndex: Int = 0
     
     
 }

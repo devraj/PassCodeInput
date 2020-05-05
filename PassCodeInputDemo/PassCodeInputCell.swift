@@ -8,15 +8,20 @@
 
 import Foundation
 import SwiftUI
+import UIKit
+import Combine
 
 struct PassCodeInputCell : UIViewRepresentable {
         
     class Coordinator : NSObject, UITextFieldDelegate {
         
-        private var passCodeInputCell: PassCodeInputCell
+        @Binding var selectedCellIndex: Int
         
-        init(_ passCodeInputCell: PassCodeInputCell) {
-            self.passCodeInputCell = passCodeInputCell
+        init(_ selectedCellIndex: Binding<Int>) {
+            // The underscore thing is important?
+            // writing self.selectedCellIndex = selectedCellIndex
+            // does not work
+            _selectedCellIndex = selectedCellIndex
         }
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -25,6 +30,11 @@ struct PassCodeInputCell : UIViewRepresentable {
             guard let stringRange = Range(range, in: currentText) else { return false }
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
             
+            // Increment the index if the change was on char
+            if updatedText.count <= 1 {
+                self.selectedCellIndex += 1
+            }
+            
             // Stop input if there's more than one character
             return updatedText.count <= 1
             
@@ -32,6 +42,8 @@ struct PassCodeInputCell : UIViewRepresentable {
     }
 
     typealias UIViewType = UITextField
+
+    @Binding var selectedCellIndex: Int
     
     func makeUIView(context: UIViewRepresentableContext<PassCodeInputCell>) -> UITextField {
 
@@ -49,7 +61,7 @@ struct PassCodeInputCell : UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self)
+        return Coordinator(self.$selectedCellIndex)
     }
 
 }

@@ -19,7 +19,7 @@
 		4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */; };
 		4DE1ED38245FBBAD00A5E4A9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3A245FBBAD00A5E4A9 /* Localizable.strings */; };
 		4DE1ED3C245FEE3400A5E4A9 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3B245FEE3400A5E4A9 /* README.md */; };
-		4DE1ED402460440900A5E4A9 /* PassCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3F2460440900A5E4A9 /* PassCodeInputCell.swift */; };
+		4DE1ED412461850B00A5E4A9 /* PassCodeInputCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED3F2460440900A5E4A9 /* PassCodeInputCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -287,8 +287,8 @@
 				4DE1ED01245BDAD900A5E4A9 /* AppDelegate.swift in Sources */,
 				4DE1ED03245BDAD900A5E4A9 /* SceneDelegate.swift in Sources */,
 				4DE1ED31245F9BE200A5E4A9 /* PassCodeInputModel.swift in Sources */,
-				4DE1ED402460440900A5E4A9 /* PassCodeInputCell.swift in Sources */,
 				4DE1ED05245BDAD900A5E4A9 /* ContentView.swift in Sources */,
+				4DE1ED412461850B00A5E4A9 /* PassCodeInputCell.swift in Sources */,
 				4DE1ED35245F9F5F00A5E4A9 /* PassCodeInputField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
