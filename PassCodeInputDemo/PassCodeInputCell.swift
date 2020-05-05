@@ -43,7 +43,7 @@ struct PassCodeInputCell : UIViewRepresentable {
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
             
             // Increment the index if the change was on char
-            if updatedText.count <= 1 {
+            if updatedText.count == 1 {
                 self.selectedCellIndex += 1
             }
             
