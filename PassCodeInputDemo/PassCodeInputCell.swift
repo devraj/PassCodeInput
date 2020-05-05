@@ -8,8 +8,6 @@
 
 import Foundation
 import SwiftUI
-import UIKit
-import Combine
 
 struct PassCodeInputCell : UIViewRepresentable {
         
@@ -41,8 +39,7 @@ struct PassCodeInputCell : UIViewRepresentable {
         }
     }
 
-    typealias UIViewType = UITextField
-
+    var index: Int
     @Binding var selectedCellIndex: Int
     
     func makeUIView(context: UIViewRepresentableContext<PassCodeInputCell>) -> UITextField {
@@ -57,7 +54,9 @@ struct PassCodeInputCell : UIViewRepresentable {
     
     func updateUIView(_ uiView: UITextField,
                       context: UIViewRepresentableContext<PassCodeInputCell>) {
-        
+        if index == selectedCellIndex {
+            uiView.becomeFirstResponder()
+        }
     }
     
     func makeCoordinator() -> Coordinator {
