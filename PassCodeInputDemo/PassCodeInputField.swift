@@ -15,7 +15,15 @@ struct PassCodeInputField: View {
     var body: some View {
         HStack {
             ForEach(0 ..< 6) { index in
-                PassCodeInputCell(cellIndex: index)
+                PassCodeInputCell()
+                    .frame(height: 20)
+                    .frame(maxWidth: .infinity, alignment: .center)
+                    .padding([.trailing, .leading], 10)
+                    .padding([.vertical], 15)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 6)
+                            .stroke(Color.red.opacity(0.5), lineWidth: 2)
+                    )
             }
         }
     }
