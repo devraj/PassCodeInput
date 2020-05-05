@@ -9,9 +9,23 @@
 import Foundation
 import SwiftUI
 
+protocol CharacterFieldBackspaceDelegate {
+    func charFieldWillDeleteBackward(_ textField: CharacterField)
+}
+
+class CharacterField: UITextField {
+    public var willDeleteBackwardDelegate: CharacterFieldBackspaceDelegate?
+
+    override func deleteBackward() {
+        willDeleteBackwardDelegate?.charFieldWillDeleteBackward(self)
+        super.deleteBackward()
+    }
+
+}
+
 struct PassCodeInputCell : UIViewRepresentable {
         
-    class Coordinator : NSObject, UITextFieldDelegate {
+    class Coordinator : NSObject, UITextFieldDelegate, CharacterFieldBackspaceDelegate{
         
         @Binding var selectedCellIndex: Int
         
@@ -37,22 +51,32 @@ struct PassCodeInputCell : UIViewRepresentable {
             return updatedText.count <= 1
             
         }
+
+        func charFieldWillDeleteBackward(_ textField: CharacterField) {
+            if(textField.text == "") {
+                self.selectedCellIndex -= 1
+            }
+        }
+
     }
+    
+    typealias UIViewType = CharacterField
 
     var index: Int
     @Binding var selectedCellIndex: Int
     
-    func makeUIView(context: UIViewRepresentableContext<PassCodeInputCell>) -> UITextField {
+    func makeUIView(context: UIViewRepresentableContext<PassCodeInputCell>) -> CharacterField {
 
-        let textField = UITextField()
-        textField.textAlignment = .center
+        let charField = CharacterField()
+        charField.textAlignment = .center
         
-        textField.delegate = context.coordinator
+        charField.delegate = context.coordinator
+        charField.willDeleteBackwardDelegate = context.coordinator
 
-        return textField
+        return charField
     }
     
-    func updateUIView(_ uiView: UITextField,
+    func updateUIView(_ uiView: CharacterField,
                       context: UIViewRepresentableContext<PassCodeInputCell>) {
         if index == selectedCellIndex {
             uiView.becomeFirstResponder()
