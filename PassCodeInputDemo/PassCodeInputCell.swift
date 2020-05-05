@@ -27,13 +27,15 @@ struct PassCodeInputCell : UIViewRepresentable {
         
     class Coordinator : NSObject, UITextFieldDelegate, CharacterFieldBackspaceDelegate{
         
+        var index: Int
         @Binding var selectedCellIndex: Int
         
-        init(_ selectedCellIndex: Binding<Int>) {
+        init(index: Int, selectedCellIndex: Binding<Int>) {
             // The underscore thing is important?
             // writing self.selectedCellIndex = selectedCellIndex
             // does not work
             _selectedCellIndex = selectedCellIndex
+            self.index = index
         }
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -50,6 +52,13 @@ struct PassCodeInputCell : UIViewRepresentable {
             // Stop input if there's more than one character
             return updatedText.count <= 1
             
+        }
+        
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+            DispatchQueue.main.async {
+                self.selectedCellIndex = self.index
+            }
+            return true
         }
 
         func charFieldWillDeleteBackward(_ textField: CharacterField) {
@@ -84,7 +93,7 @@ struct PassCodeInputCell : UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(self.$selectedCellIndex)
+        return Coordinator(index: index, selectedCellIndex: self.$selectedCellIndex)
     }
 
 }
