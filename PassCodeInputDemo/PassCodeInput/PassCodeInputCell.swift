@@ -82,7 +82,7 @@ struct PassCodeInputCell : UIViewRepresentable {
         }
 
         func charFieldWillDeleteBackward(_ textField: CharacterField) {
-            if(textField.text == "") {
+            if(textField.text == "" && selectedCellIndex > 0) {
                 self.selectedCellIndex -= 1
             }
         }
