@@ -39,7 +39,7 @@ struct PassCodeInputCell : UIViewRepresentable {
         }
         
         func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-            
+                        
             let currentText = textField.text!
             guard let stringRange = Range(range, in: currentText) else { return false }
             let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
@@ -78,7 +78,11 @@ struct PassCodeInputCell : UIViewRepresentable {
 
         let charField = CharacterField()
         charField.textAlignment = .center
-        
+
+        // Caps and suggestions don't make sense
+        charField.autocapitalizationType = .none
+        charField.autocorrectionType = .no
+
         charField.delegate = context.coordinator
         charField.willDeleteBackwardDelegate = context.coordinator
 

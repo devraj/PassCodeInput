@@ -12,12 +12,11 @@ import Foundation
 struct PassCodeInputField: View {
     
     @ObservedObject var inputModel: PassCodeInputModel
-    @State var selectedCellIndex: Int = 0
     
     var body: some View {
         HStack {
             ForEach(0 ..< 6) { index in
-                PassCodeInputCell(index: index, selectedCellIndex: self.$selectedCellIndex)
+                PassCodeInputCell(index: index, selectedCellIndex: self.$inputModel.selectedCellIndex)
                     .frame(height: 20)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding([.trailing, .leading], 10)
@@ -33,6 +32,6 @@ struct PassCodeInputField: View {
 
 struct PassCodeInputField_Previews: PreviewProvider {
     static var previews: some View {
-        PassCodeInputField(inputModel: PassCodeInputModel(), selectedCellIndex: 0)
+        PassCodeInputField(inputModel: PassCodeInputModel())
     }
 }

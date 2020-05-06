@@ -16,5 +16,9 @@ class PassCodeInputModel : ObservableObject {
     
     @Published var selectedCellIndex: Int = 0
     
+    init() {
+
+    }
+    
     
 }

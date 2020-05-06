@@ -19,7 +19,7 @@ struct ContentView: View {
 
             }
             Section {
-                Button(LocalizedStringKey("I'm Ready"), action: {
+                Button(LocalizedStringKey("Engage"), action: {
                   
                 }).disabled(!self.passCodeModel.isValid)
             }
