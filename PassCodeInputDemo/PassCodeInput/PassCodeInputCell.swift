@@ -10,6 +10,9 @@ import Foundation
 import SwiftUI
 
 protocol CharacterFieldBackspaceDelegate {
+    /**
+     - Parameter textField: A CharacterField instance
+     */
     func charFieldWillDeleteBackward(_ textField: CharacterField)
 }
 
@@ -35,6 +38,11 @@ struct PassCodeInputCell : UIViewRepresentable {
         // from a PassCodeInputModel instance
         @Binding var textReference: String
         
+        /**
+         - Parameter index: Index of this cell in the pass code array
+         - Parameter selectedCellIndex: index of where the user is upto
+         - Parameter textReference: reference in the array to update input
+         */
         init(index: Int, selectedCellIndex: Binding<Int>,
              textReference: Binding<String>) {
             // The underscore thing is important due to

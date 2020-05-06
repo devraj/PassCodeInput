@@ -35,18 +35,27 @@ class PassCodeInputModel : ObservableObject {
         .eraseToAnyPublisher()
     }
     
+    /**
+     - Returns: The number of cells in the pass code
+     */
     var numberOfCells: Int {
         get {
             return self.passCode.count
         }
     }
     
+    /**
+     - Returns: A String with the current entered code
+     */
     var passCodeString: String {
         get {
             return self.passCode.joined()
         }
     }
     
+    /**
+     - Parameters passCodeLength: Number of characters in passcode
+     */
     init(_ passCodeLength: Int) {
         
         // FIXME: - Is there a better way of doing this?
