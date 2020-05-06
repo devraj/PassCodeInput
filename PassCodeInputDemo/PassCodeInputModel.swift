@@ -41,6 +41,12 @@ class PassCodeInputModel : ObservableObject {
         }
     }
     
+    var passCodeString: String {
+        get {
+            return self.passCode.joined()
+        }
+    }
+    
     init(_ passCodeLength: Int) {
         
         // FIXME: - Is there a better way of doing this?

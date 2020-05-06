@@ -20,7 +20,9 @@ struct ContentView: View {
             }
             Section {
                 Button(LocalizedStringKey("Engage"), action: {
-                  
+                    print(
+                        "Passcode is \(self.passCodeModel.passCodeString)"
+                    )
                 }).disabled(!self.passCodeModel.isValid)
             }
         }
