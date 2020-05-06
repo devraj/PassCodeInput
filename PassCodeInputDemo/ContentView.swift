@@ -16,7 +16,6 @@ struct ContentView: View {
         Form {
             Section {
                 PassCodeInputField(inputModel: self.passCodeModel)
-
             }
             Section {
                 Button(LocalizedStringKey("Engage"), action: {

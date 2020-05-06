@@ -86,6 +86,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D9936392462EFF600F006CC /* PassCodeInput */ = {
+			isa = PBXGroup;
+			children = (
+				4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */,
+				4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */,
+				4DE1ED3F2460440900A5E4A9 /* PassCodeInputCell.swift */,
+			);
+			path = PassCodeInput;
+			sourceTree = "<group>";
+		};
 		4DE1ECF4245BDAD900A5E4A9 = {
 			isa = PBXGroup;
 			children = (
@@ -110,11 +120,9 @@
 		4DE1ECFF245BDAD900A5E4A9 /* PassCodeInputDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4D9936392462EFF600F006CC /* PassCodeInput */,
 				4DE1ED00245BDAD900A5E4A9 /* AppDelegate.swift */,
 				4DE1ED02245BDAD900A5E4A9 /* SceneDelegate.swift */,
-				4DE1ED30245F9BE200A5E4A9 /* PassCodeInputModel.swift */,
-				4DE1ED34245F9F5F00A5E4A9 /* PassCodeInputField.swift */,
-				4DE1ED3F2460440900A5E4A9 /* PassCodeInputCell.swift */,
 				4DE1ED04245BDAD900A5E4A9 /* ContentView.swift */,
 				4DE1ED06245BDAD900A5E4A9 /* Assets.xcassets */,
 				4DE1ED0B245BDAD900A5E4A9 /* LaunchScreen.storyboard */,
