@@ -16,12 +16,21 @@ class PassCodeInputModel : ObservableObject {
     @Published var isValid: Bool = false
     
     @Published var selectedCellIndex: Int = 0
-    
+
+    private var cancellableSet: Set<AnyCancellable> = []
     private var passCodeValidPublisher: AnyPublisher<Bool, Never> {
         $passCode
         .removeDuplicates()
         .map { input in
-            return true
+            var validity = true
+            // FIXME: - Find a better way of doing this?
+            input.forEach {
+                if $0.count != 1 {
+                    validity = false
+                    return
+                }
+            }
+            return validity
         }
         .eraseToAnyPublisher()
     }
@@ -33,10 +42,16 @@ class PassCodeInputModel : ObservableObject {
     }
     
     init(_ passCodeLength: Int) {
+        
+        // FIXME: - Is there a better way of doing this?
         for _ in 1...passCodeLength {
             self.passCode.append("")
         }
-        print(self.numberOfCells)
+
+        passCodeValidPublisher
+        .receive(on: RunLoop.main)
+        .assign(to: \.isValid, on: self)
+        .store(in: &cancellableSet)
 
     }
     

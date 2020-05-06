@@ -27,14 +27,20 @@ struct PassCodeInputCell : UIViewRepresentable {
         
     class Coordinator : NSObject, UITextFieldDelegate, CharacterFieldBackspaceDelegate{
         
+        // No one else should change this
         var index: Int
+        // Each cell will update this
         @Binding var selectedCellIndex: Int
+        // Reference to an index in the text array
+        // from a PassCodeInputModel instance
+        @Binding var textReference: String
         
-        init(index: Int, selectedCellIndex: Binding<Int>) {
-            // The underscore thing is important?
-            // writing self.selectedCellIndex = selectedCellIndex
-            // does not work
+        init(index: Int, selectedCellIndex: Binding<Int>,
+             textReference: Binding<String>) {
+            // The underscore thing is important due to
+            // the Binding<T> syntax
             _selectedCellIndex = selectedCellIndex
+            _textReference = textReference
             self.index = index
         }
         
@@ -53,7 +59,13 @@ struct PassCodeInputCell : UIViewRepresentable {
             return updatedText.count <= 1
             
         }
-        
+
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            DispatchQueue.main.async {
+                self.textReference = textField.text ?? ""
+            }
+        }
+
         func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
             DispatchQueue.main.async {
                 self.selectedCellIndex = self.index
@@ -71,12 +83,16 @@ struct PassCodeInputCell : UIViewRepresentable {
     
     typealias UIViewType = CharacterField
 
+    // No one else should change this
     var index: Int
+
+    // Bound from a PassCodeInputModel instance
     @Binding var selectedCellIndex: Int
+    @Binding var textReference: String
     
     func makeUIView(context: UIViewRepresentableContext<PassCodeInputCell>) -> CharacterField {
 
-        let charField = CharacterField()
+        let charField = CharacterField(frame: .zero)
         charField.textAlignment = .center
 
         // Caps and suggestions don't make sense
@@ -97,7 +113,7 @@ struct PassCodeInputCell : UIViewRepresentable {
     }
     
     func makeCoordinator() -> Coordinator {
-        return Coordinator(index: index, selectedCellIndex: self.$selectedCellIndex)
+        return Coordinator(index: index, selectedCellIndex: self.$selectedCellIndex, textReference: self.$textReference)
     }
 
 }
