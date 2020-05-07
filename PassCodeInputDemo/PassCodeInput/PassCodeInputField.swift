@@ -20,7 +20,7 @@ struct PassCodeInputField: View {
                     .frame(height: 20)
                     .frame(maxWidth: .infinity, alignment: .center)
                     .padding([.trailing, .leading], 10)
-                    .padding([.vertical], 15)
+                    .padding([.vertical], 10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 6)
                             .stroke(Color.red.opacity(0.5), lineWidth: 2)
