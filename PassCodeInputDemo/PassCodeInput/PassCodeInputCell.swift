@@ -27,67 +27,6 @@ class CharacterField: UITextField {
 }
 
 struct PassCodeInputCell : UIViewRepresentable {
-        
-    class Coordinator : NSObject, UITextFieldDelegate, CharacterFieldBackspaceDelegate{
-        
-        // No one else should change this
-        var index: Int
-        // Each cell will update this
-        @Binding var selectedCellIndex: Int
-        // Reference to an index in the text array
-        // from a PassCodeInputModel instance
-        @Binding var textReference: String
-        
-        /**
-         - Parameter index: Index of this cell in the pass code array
-         - Parameter selectedCellIndex: index of where the user is upto
-         - Parameter textReference: reference in the array to update input
-         */
-        init(index: Int, selectedCellIndex: Binding<Int>,
-             textReference: Binding<String>) {
-            // The underscore thing is important due to
-            // the Binding<T> syntax
-            _selectedCellIndex = selectedCellIndex
-            _textReference = textReference
-            self.index = index
-        }
-        
-        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-                        
-            let currentText = textField.text!
-            guard let stringRange = Range(range, in: currentText) else { return false }
-            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-            
-            // Increment the index if the change was on char
-            if updatedText.count == 1 {
-                self.selectedCellIndex += 1
-            }
-            
-            // Stop input if there's more than one character
-            return updatedText.count <= 1
-            
-        }
-
-        func textFieldDidChangeSelection(_ textField: UITextField) {
-            DispatchQueue.main.async {
-                self.textReference = textField.text ?? ""
-            }
-        }
-
-        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            DispatchQueue.main.async {
-                self.selectedCellIndex = self.index
-            }
-            return true
-        }
-
-        func charFieldWillDeleteBackward(_ textField: CharacterField) {
-            if(textField.text == "" && selectedCellIndex > 0) {
-                self.selectedCellIndex -= 1
-            }
-        }
-
-    }
     
     typealias UIViewType = CharacterField
 
@@ -124,4 +63,64 @@ struct PassCodeInputCell : UIViewRepresentable {
         return Coordinator(index: index, selectedCellIndex: self.$selectedCellIndex, textReference: self.$textReference)
     }
 
+    class Coordinator : NSObject, UITextFieldDelegate, CharacterFieldBackspaceDelegate{
+        
+        // No one else should change this
+        var index: Int
+        // Each cell will update this
+        @Binding var selectedCellIndex: Int
+        // Reference to an index in the text array
+        // from a PassCodeInputModel instance
+        @Binding var textReference: String
+        
+        /**
+         - Parameter index: Index of this cell in the pass code array
+         - Parameter selectedCellIndex: index of where the user is upto
+         - Parameter textReference: reference in the array to update input
+         */
+        init(index: Int, selectedCellIndex: Binding<Int>,
+             textReference: Binding<String>) {
+            // The underscore thing is important due to
+            // the Binding<T> syntax
+            _selectedCellIndex = selectedCellIndex
+            _textReference = textReference
+            self.index = index
+        }
+        
+        func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+                        
+            let currentText = textField.text ?? "" //textField.text? will almost assuredly never be nil, but we should always assume it could be
+            guard let stringRange = Range(range, in: currentText) else { return false }
+            let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
+            
+            // Increment the index if the change was on char
+            if updatedText.count == 1 {
+                self.selectedCellIndex += 1
+            }
+            
+            // Stop input if there's more than one character
+            return updatedText.count <= 1
+            
+        }
+
+        func textFieldDidChangeSelection(_ textField: UITextField) {
+            DispatchQueue.main.async {
+                self.textReference = textField.text ?? ""
+            }
+        }
+
+        func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
+            DispatchQueue.main.async {
+                self.selectedCellIndex = self.index
+            }
+            return true
+        }
+
+        func charFieldWillDeleteBackward(_ textField: CharacterField) {
+            if(textField.text == "" && selectedCellIndex > 0) {
+                self.selectedCellIndex -= 1
+            }
+        }
+
+    }
 }
