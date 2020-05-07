@@ -20,19 +20,11 @@ class PassCodeInputModel : ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     private var passCodeValidPublisher: AnyPublisher<Bool, Never> {
         $passCode
-        .removeDuplicates()
-        .map { input in
-            var validity = true
-            // FIXME: - Find a better way of doing this?
-            input.forEach {
-                if $0.count != 1 {
-                    validity = false
-                    return
-                }
-            }
-            return validity
+            .removeDuplicates()
+            .map {
+                $0.allSatisfy { $0.count == 1 }
         }
-        .eraseToAnyPublisher()
+            .eraseToAnyPublisher()
     }
     
     /**
@@ -54,19 +46,19 @@ class PassCodeInputModel : ObservableObject {
     }
     
     /**
-     - Parameters passCodeLength: Number of characters in passcode
+     - Parameters passCodeLength: Number of characters in passcode. Must be greater than 0.
      */
-    init(_ passCodeLength: Int) {
+    init(passCodeLength: UInt) {
         
         // FIXME: - Is there a better way of doing this?
-        for _ in 1...passCodeLength {
+        for _ in 0 ..< passCodeLength {
             self.passCode.append("")
         }
 
         passCodeValidPublisher
-        .receive(on: RunLoop.main)
-        .assign(to: \.isValid, on: self)
-        .store(in: &cancellableSet)
+            .receive(on: RunLoop.main)
+            .assign(to: \.isValid, on: self)
+            .store(in: &cancellableSet)
 
     }
     

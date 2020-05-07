@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @ObservedObject var passCodeModel = PassCodeInputModel(6)
+    @ObservedObject var passCodeModel = PassCodeInputModel(passCodeLength: 6)
     
     var body: some View {
         Form {
