@@ -32,6 +32,6 @@ struct PassCodeInputField: View {
 
 struct PassCodeInputField_Previews: PreviewProvider {
     static var previews: some View {
-        PassCodeInputField(inputModel: PassCodeInputModel(6))
+        PassCodeInputField(inputModel: PassCodeInputModel(passCodeLength: 6))
     }
 }
