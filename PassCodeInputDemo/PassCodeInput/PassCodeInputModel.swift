@@ -56,7 +56,7 @@ class PassCodeInputModel : ObservableObject {
     /**
      - Parameters passCodeLength: Number of characters in passcode
      */
-    init(_ passCodeLength: Int) {
+    init(_ passCodeLength: UInt) {
         
         // FIXME: - Is there a better way of doing this?
         for _ in 1...passCodeLength {
