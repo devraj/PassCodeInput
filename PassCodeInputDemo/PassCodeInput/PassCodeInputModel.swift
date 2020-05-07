@@ -20,19 +20,9 @@ class PassCodeInputModel : ObservableObject {
     private var cancellableSet: Set<AnyCancellable> = []
     private var passCodeValidPublisher: AnyPublisher<Bool, Never> {
         $passCode
-        .removeDuplicates()
-        .map { input in
-            var validity = true
-            // FIXME: - Find a better way of doing this?
-            input.forEach {
-                if $0.count != 1 {
-                    validity = false
-                    return
-                }
-            }
-            return validity
-        }
-        .eraseToAnyPublisher()
+            .removeDuplicates()
+            .allSatisfy { $0.count != 1 }
+            .eraseToAnyPublisher()
     }
     
     /**
