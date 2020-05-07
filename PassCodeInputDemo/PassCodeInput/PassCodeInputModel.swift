@@ -21,7 +21,9 @@ class PassCodeInputModel : ObservableObject {
     private var passCodeValidPublisher: AnyPublisher<Bool, Never> {
         $passCode
             .removeDuplicates()
-            .allSatisfy { $0.count != 1 }
+            .map {
+                $0.allSatisfy { $0.count == 1 }
+        }
             .eraseToAnyPublisher()
     }
     
