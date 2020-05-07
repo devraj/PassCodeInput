@@ -35,9 +35,9 @@ Running the Demo
 ## Getting Help
 
 Contact the author of the library directly:
-- Dev Mukherjee ([@mdevraj](https://twitter.com/mdevraj]))
+- Dev Mukherjee ([@mdevraj](https://twitter.com/mdevraj))
 
-For feature requests and bug reports please use [Github issues](devraj/PassCodeInput/#).
+For feature requests and bug reports please use [Github issues](https://github.com/devraj/PassCodeInput/issues).
 
 ## License
 
