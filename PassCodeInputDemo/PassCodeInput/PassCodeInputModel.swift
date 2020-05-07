@@ -44,19 +44,19 @@ class PassCodeInputModel : ObservableObject {
     }
     
     /**
-     - Parameters passCodeLength: Number of characters in passcode
+     - Parameters passCodeLength: Number of characters in passcode. Must be greater than 0.
      */
     init(passCodeLength: UInt) {
         
         // FIXME: - Is there a better way of doing this?
-        for _ in 1...passCodeLength {
+        for _ in 0 ..< passCodeLength {
             self.passCode.append("")
         }
 
         passCodeValidPublisher
-        .receive(on: RunLoop.main)
-        .assign(to: \.isValid, on: self)
-        .store(in: &cancellableSet)
+            .receive(on: RunLoop.main)
+            .assign(to: \.isValid, on: self)
+            .store(in: &cancellableSet)
 
     }
     
