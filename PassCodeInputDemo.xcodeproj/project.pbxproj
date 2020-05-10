@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D99807A2468334A00D953AE /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D9980792468334A00D953AE /* SecondView.swift */; };
 		4DE1ED01245BDAD900A5E4A9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED00245BDAD900A5E4A9 /* AppDelegate.swift */; };
 		4DE1ED03245BDAD900A5E4A9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED02245BDAD900A5E4A9 /* SceneDelegate.swift */; };
 		4DE1ED05245BDAD900A5E4A9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DE1ED04245BDAD900A5E4A9 /* ContentView.swift */; };
@@ -41,6 +42,7 @@
 
 /* Begin PBXFileReference section */
 		4D9936422463D8BF00F006CC /* Package.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		4D9980792468334A00D953AE /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		4DE1ECFD245BDAD900A5E4A9 /* PassCodeInputDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PassCodeInputDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DE1ED00245BDAD900A5E4A9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4DE1ED02245BDAD900A5E4A9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				4DE1ED00245BDAD900A5E4A9 /* AppDelegate.swift */,
 				4DE1ED02245BDAD900A5E4A9 /* SceneDelegate.swift */,
 				4DE1ED04245BDAD900A5E4A9 /* ContentView.swift */,
+				4D9980792468334A00D953AE /* SecondView.swift */,
 				4DE1ED06245BDAD900A5E4A9 /* Assets.xcassets */,
 				4DE1ED0B245BDAD900A5E4A9 /* LaunchScreen.storyboard */,
 				4DE1ED0E245BDAD900A5E4A9 /* Info.plist */,
@@ -294,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D99807A2468334A00D953AE /* SecondView.swift in Sources */,
 				4DE1ED01245BDAD900A5E4A9 /* AppDelegate.swift in Sources */,
 				4DE1ED03245BDAD900A5E4A9 /* SceneDelegate.swift in Sources */,
 				4DE1ED31245F9BE200A5E4A9 /* PassCodeInputModel.swift in Sources */,

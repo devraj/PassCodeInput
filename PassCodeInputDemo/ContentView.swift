@@ -13,17 +13,23 @@ struct ContentView: View {
     @ObservedObject var passCodeModel = PassCodeInputModel(passCodeLength: 6)
     
     var body: some View {
-        Form {
-            Section {
-                PassCodeInputField(inputModel: self.passCodeModel)
+        NavigationView {
+            Form {
+                Section {
+                    PassCodeInputField(inputModel: self.passCodeModel)
+                }
+                Section {
+                    Button(LocalizedStringKey("Engage"), action: {
+                        print(
+                            "Passcode is \(self.passCodeModel.passCodeString)"
+                        )
+                    }).disabled(!self.passCodeModel.isValid)
+                }
             }
-            Section {
-                Button(LocalizedStringKey("Engage"), action: {
-                    print(
-                        "Passcode is \(self.passCodeModel.passCodeString)"
-                    )
-                }).disabled(!self.passCodeModel.isValid)
-            }
+            .navigationBarTitle(LocalizedStringKey("First View"))
+            .navigationBarItems(trailing: NavigationLink(destination: SecondView()) {
+              Text(LocalizedStringKey("Second"))
+            })
         }
     }
 }
