@@ -12,10 +12,16 @@ import Combine
 
 class PassCodeInputModel : ObservableObject {
     
-    @Published var passCode: [String] = []
+    @Published var passCode: [String]
     @Published var isValid: Bool = false
     
-    @Published var selectedCellIndex: Int = 0
+    @Published var selectedCellIndex: Int {
+        didSet {
+            if selectedCellIndex >= self.numberOfCells {
+                selectedCellIndex = oldValue
+            }
+        }
+    }
 
     private var cancellableSet: Set<AnyCancellable> = []
     private var passCodeValidPublisher: AnyPublisher<Bool, Never> {
@@ -23,7 +29,7 @@ class PassCodeInputModel : ObservableObject {
             .removeDuplicates()
             .map {
                 $0.allSatisfy { $0.count == 1 }
-        }
+            }
             .eraseToAnyPublisher()
     }
     
@@ -49,8 +55,10 @@ class PassCodeInputModel : ObservableObject {
      - Parameters passCodeLength: Number of characters in passcode. Must be greater than 0.
      */
     init(passCodeLength: UInt) {
+       
+        self.passCode = Array()
+        self.selectedCellIndex = 0
         
-        // FIXME: - Is there a better way of doing this?
         for _ in 0 ..< passCodeLength {
             self.passCode.append("")
         }
@@ -61,6 +69,4 @@ class PassCodeInputModel : ObservableObject {
             .store(in: &cancellableSet)
 
     }
-    
-    
 }

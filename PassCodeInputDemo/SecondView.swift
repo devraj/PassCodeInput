@@ -25,6 +25,10 @@ struct SecondView: View {
                 }).disabled(!self.inputModel.isValid)
             }
         }
+        .onAppear() {
+            print("Second View Appears")
+            print(self.inputModel.selectedCellIndex)
+        }
     }
 }
 
