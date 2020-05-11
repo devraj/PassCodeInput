@@ -31,6 +31,7 @@ struct Shake: GeometryEffect {
 struct ContentView: View {
     
     @ObservedObject var passCodeModel = PassCodeInputModel(passCodeLength: 6)
+    @ObservedObject var secondModel = PassCodeInputModel(passCodeLength: 6)
     @State var attempts: Int = 0
 
     var body: some View {
@@ -53,7 +54,7 @@ struct ContentView: View {
             }
             .navigationBarTitle(LocalizedStringKey("First View"))
             .navigationBarItems(trailing: NavigationLink(destination:
-                SecondView(passCodeModel: PassCodeInputModel(passCodeLength: 6))
+                SecondView(passCodeModel: self.secondModel)
                 .navigationBarTitle(LocalizedStringKey("NestedView")))
             {
               Text(LocalizedStringKey("Second"))
