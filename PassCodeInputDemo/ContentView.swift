@@ -8,11 +8,13 @@
 
 import SwiftUI
 
-/*
-   
-   With a little help from:
-   - [How to create an explicit animation](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-an-explicit-animation)
-   - [SwiftUI: Shake Animation](https://www.objc.io/blog/2019/10/01/swiftui-shake-animation/)
+/**
+ Creates a shake animation, useful in denoting a failed
+ input attempt.
+ 
+ With a little help from:
+ - [How to create an explicit animation](https://www.hackingwithswift.com/quick-start/swiftui/how-to-create-an-explicit-animation)
+ - [SwiftUI: Shake Animation](https://www.objc.io/blog/2019/10/01/swiftui-shake-animation/)
 */
 struct Shake: GeometryEffect {
     var amount: CGFloat = 10
@@ -39,7 +41,7 @@ struct ContentView: View {
                     .modifier(Shake(animatableData: CGFloat(attempts)))
                 }
                 Section {
-                    Button(LocalizedStringKey("Engage"), action: {
+                    Button(LocalizedStringKey("Prompt_ShakeOff"), action: {
                         print("Passcode is \(self.passCodeModel.passCodeString)")
 
                         withAnimation(.default) {
@@ -50,7 +52,10 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(LocalizedStringKey("First View"))
-            .navigationBarItems(trailing: NavigationLink(destination: SecondView(passCodeModel: PassCodeInputModel(passCodeLength: 6))) {
+            .navigationBarItems(trailing: NavigationLink(destination:
+                SecondView(passCodeModel: PassCodeInputModel(passCodeLength: 6))
+                .navigationBarTitle(LocalizedStringKey("NestedView")))
+            {
               Text(LocalizedStringKey("Second"))
             })
         }

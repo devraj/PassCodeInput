@@ -18,7 +18,7 @@ struct SecondView: View {
                 PassCodeInputField(inputModel: self.passCodeModel)
             }
             Section {
-                Button(LocalizedStringKey("Engage"), action: {
+                Button(LocalizedStringKey("Prompt_Engage"), action: {
                     print(
                         "Passcode is \(self.passCodeModel.passCodeString)"
                     )
