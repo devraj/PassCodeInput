@@ -27,7 +27,7 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(LocalizedStringKey("First View"))
-            .navigationBarItems(trailing: NavigationLink(destination: SecondView()) {
+            .navigationBarItems(trailing: NavigationLink(destination: SecondView(inputModel: PassCodeInputModel(passCodeLength: 6))) {
               Text(LocalizedStringKey("Second"))
             })
         }

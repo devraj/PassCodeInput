@@ -10,19 +10,19 @@ import SwiftUI
 
 struct SecondView: View {
 
-    @ObservedObject var secondModel = PassCodeInputModel(passCodeLength: 6)
+    @ObservedObject var inputModel: PassCodeInputModel
 
     var body: some View {
         Form {
             Section {
-                PassCodeInputField(inputModel: self.secondModel)
+                PassCodeInputField(inputModel: self.inputModel)
             }
             Section {
                 Button(LocalizedStringKey("Engage"), action: {
                     print(
-                        "Passcode is \(self.secondModel.passCodeString)"
+                        "Passcode is \(self.inputModel.passCodeString)"
                     )
-                }).disabled(!self.secondModel.isValid)
+                }).disabled(!self.inputModel.isValid)
             }
         }
     }
@@ -30,6 +30,6 @@ struct SecondView: View {
 
 struct SecondView_Previews: PreviewProvider {
     static var previews: some View {
-        SecondView()
+        SecondView(inputModel: PassCodeInputModel(passCodeLength: 8))
     }
 }

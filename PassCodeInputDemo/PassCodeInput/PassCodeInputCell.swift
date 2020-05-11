@@ -104,15 +104,11 @@ struct PassCodeInputCell : UIViewRepresentable {
         }
 
         func textFieldDidChangeSelection(_ textField: UITextField) {
-            DispatchQueue.main.async {
-                self.textReference = textField.text ?? ""
-            }
+            self.textReference = textField.text ?? ""
         }
 
         func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-            DispatchQueue.main.async {
-                self.selectedCellIndex = self.index
-            }
+            self.selectedCellIndex = self.index
             return true
         }
 
