@@ -25,8 +25,6 @@ struct SecondView: View {
                 }).disabled(!self.passCodeModel.isValid)
             }
         }
-        .onAppear() {
-        }
     }
 }
 

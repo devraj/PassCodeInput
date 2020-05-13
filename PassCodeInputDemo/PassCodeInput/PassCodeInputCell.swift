@@ -97,7 +97,6 @@ struct PassCodeInputCell : UIViewRepresentable {
             if updatedText.count == 1 {
                 self.selectedCellIndex += 1
             }
-            print(selectedCellIndex)
             
             // Stop input if there's more than one character
             return updatedText.count <= 1

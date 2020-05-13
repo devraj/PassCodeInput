@@ -34,6 +34,7 @@ struct ContentView: View {
     @ObservedObject var childPassCodeModel = PassCodeInputModel(passCodeLength: 6)
 
     @State var attempts: Int = 0
+    @State var showModal: Bool = false
 
     var body: some View {
         NavigationView {
@@ -54,11 +55,19 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle(LocalizedStringKey("First View"))
-            .navigationBarItems(trailing: NavigationLink(destination:
+            .navigationBarItems(leading:
+                Button(action: {
+                    self.showModal.toggle()
+                }) { Text(LocalizedStringKey("ModalView"))
+                    .sheet(isPresented: $showModal) {
+                        return ModalRootView()
+                    }
+                },
+                                trailing: NavigationLink(destination:
                 SecondView(passCodeModel: self.childPassCodeModel)
                 .navigationBarTitle(LocalizedStringKey("NestedView")))
             {
-              Text(LocalizedStringKey("Second"))
+              Text(LocalizedStringKey("Child View"))
             })
         }
     }
