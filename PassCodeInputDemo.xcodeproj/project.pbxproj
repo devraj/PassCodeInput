@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -247,7 +247,7 @@
 				};
 			};
 			buildConfigurationList = 4DE1ECF8245BDAD900A5E4A9 /* Build configuration list for PBXProject "PassCodeInputDemo" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.4";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
