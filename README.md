@@ -1,5 +1,8 @@
 # SwiftUI PassCode Input 
 
+> [!IMPORTANT]\
+> Deprecation notice: As of iOS26 components like these are redundant, see [Digit Entry View](https://developer.apple.com/design/human-interface-guidelines/digit-entry-views)
+
 **Note:** this project is currently under aggressive development, please _do not_ use it in a production application.
 
 This project provides a Two Factor like Pass Code entry widget. It provides a nice user experience where a user can type in a pass code like input (letters or numbers) and provides bindable validation.
